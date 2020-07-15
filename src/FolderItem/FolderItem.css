@@ -1,0 +1,11 @@
+.FolderItem {
+    text-align: center;
+    padding-top: 25px;
+    border: 1px solid lightgray;
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+.FolderItem:hover {
+    border: 1px solid black;
+}

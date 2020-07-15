@@ -1,0 +1,35 @@
+.NoteItem {
+    border: 1px solid lightgray;
+    height: 142px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.NoteItem:hover {
+    border: 1px solid black;
+}
+
+.NoteName {
+    margin-top: 0;
+}
+
+.NoteDetails {
+    text-align: left;
+}
+
+.NoteButton-Area {
+    text-align: right;
+}
+
+.NoteButton-Delete {
+    background: none;
+    border: 1px solid lightgray;
+    padding: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+
+button:hover {
+    cursor: pointer;
+    border: 1px solid black;
+}
