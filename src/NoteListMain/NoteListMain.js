@@ -11,7 +11,7 @@ export default function NoteListMain(props) {
                 {props.notes.map(note =>
                     <li key={note.id}>
                         <Note 
-                            key={note.id}
+                            id={note.id}
                             name={note.name}
                             modified={note.modified}
                         />  

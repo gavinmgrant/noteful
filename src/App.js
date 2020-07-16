@@ -15,7 +15,7 @@ class App extends Component {
   };
 
   componentDidMount() {
-    // fake date loading from API call
+    // placeholder loading from future API call
     setTimeout(() => this.setState(store), 600);
   }
 

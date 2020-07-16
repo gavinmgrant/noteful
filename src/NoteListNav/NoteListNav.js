@@ -14,10 +14,10 @@ export default function NoteListNav(props) {
                             className='NoteListNav-Folder-Link'
                             to={`/folder/${folder.id}`}
                         >
-                            <span className='NoteListNav-Number'>
-                                {countNotesForFolder(props.notes, folder.id)}
-                            </span>
                             {folder.name}
+                            <span className='NoteListNav-Number'>
+                                {' - '}{countNotesForFolder(props.notes, folder.id)} notes
+                            </span>
                         </NavLink>
                     </li>
                 )}

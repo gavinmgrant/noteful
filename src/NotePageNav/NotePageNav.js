@@ -5,14 +5,16 @@ import './NotePageNav.css';
 export default function NotePageNav(props) {
     return (
         <div className='NotePageNav'>
-            <AddButton
+            
+        <AddButton
                 tag='button'
                 role='link'
                 onClick={() => props.history.goBack()}
                 className='NotePageNav-Back-Button'
             >
                 Go Back
-            </AddButton>
+        </AddButton>
+        <p>Folder:</p>
             {props.folder && (
                 <h3 className='NotePageNav-Folder-Name'>
                     {props.folder.name}

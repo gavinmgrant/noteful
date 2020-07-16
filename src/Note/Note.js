@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './Note.css';
 
-export default function NoteItem(props) {
+export default function Note(props) {
     return (
         <div className='NoteItem'>
             <div className='NoteDetails'>
@@ -11,7 +11,7 @@ export default function NoteItem(props) {
                         {props.name}
                     </Link>
                 </h2>
-                <p>Modified on: {props.modified}</p>
+                <p className='NoteModified'>Modified on: {props.modified.slice(0, 10)}</p>
             </div>
             <div className='NoteButton-Area'>
                 <button className='NoteButton-Delete'>Delete Note</button>

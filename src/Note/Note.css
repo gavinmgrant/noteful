@@ -1,6 +1,6 @@
 .NoteItem {
     border: 1px solid lightgray;
-    height: 142px;
+    height: 110px;
     padding: 10px;
     margin-bottom: 10px;
 }
@@ -11,10 +11,16 @@
 
 .NoteName {
     margin-top: 0;
+    margin-bottom: 0;
 }
 
 .NoteDetails {
     text-align: left;
+}
+
+.NoteModified {
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 .NoteButton-Area {
@@ -26,7 +32,6 @@
     border: 1px solid lightgray;
     padding: 10px;
     margin-right: 10px;
-    margin-top: 10px;
 }
 
 button:hover {
