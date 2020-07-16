@@ -22,69 +22,74 @@ class App extends Component {
   renderNavRoutes() {
     const {notes, folders} = this.state;
     return (
-        <>
-            {['/', '/folder/:folderId'].map(path => (
-                <Route
-                    exact
-                    key={path}
-                    path={path}
-                    render={routeProps => (
-                        <NoteListNav
-                            folders={folders}
-                            notes={notes}
-                            {...routeProps}
-                        />
-                    )}
-                />
-            ))}
-            <Route
-                path="/note/:noteId"
-                render={routeProps => {
-                    const {noteId} = routeProps.match.params;
-                    const note = findNote(notes, noteId) || {};
-                    const folder = findFolder(folders, note.folderId);
-                    return <NotePageNav {...routeProps} folder={folder} />;
-                }}
-            />
-            <Route path="/add-folder" component={NotePageNav} />
-            <Route path="/add-note" component={NotePageNav} />
-        </>
+      <>
+        {['/', '/folder/:folderId'].map(path => (
+          <Route
+            exact
+            key={path}
+            path={path}
+            render={routeProps => (
+              <NoteListNav
+                folders={folders}
+                notes={notes}
+                {...routeProps}
+              />
+            )}
+          />
+        ))}
+          <Route
+              path="/note/:noteId"
+              render={routeProps => {
+                  const {noteId} = routeProps.match.params;
+                  const note = findNote(notes, noteId) || {};
+                  const folder = findFolder(folders, note.folderId);
+                  return <NotePageNav {...routeProps} folder={folder} />;
+              }}
+          />
+          <Route path="/add-folder" component={NotePageNav} />
+          <Route path="/add-note" component={NotePageNav} />
+      </>
     );
   }
   
   renderMainRoutes() {
-    const {notes, folders} = this.state;
+    const {notes} = this.state;
     return (
-        <>
-            {['/', '/folder/:folderId'].map(path => (
-                <Route
-                    exact
-                    key={path}
-                    path={path}
-                    render={routeProps => {
-                        const {folderId} = routeProps.match.params;
-                        const notesForFolder = getNotesForFolder(
-                            notes,
-                            folderId
-                        );
-                        return (
-                            <NoteListMain
-                                {...routeProps}
-                                notes={notesForFolder}
-                            />
-                        );
-                    }}
+      <>
+        {['/', '/folder/:folderId'].map(path => (
+          <Route
+            exact
+            key={path}
+            path={path}
+            render={routeProps => {
+              const {folderId} = routeProps.match.params;
+              const notesForFolder = getNotesForFolder(
+                notes,
+                folderId
+              );
+              return (
+                <NoteListMain
+                  {...routeProps}
+                  notes={notesForFolder}
                 />
-            ))}
-            <Route
-                path="/note/:noteId"
-                render={routeProps => {
-                    const {noteId} = routeProps.match.params;
-                    const note = findNote(notes, noteId);
-                    return <NotePageMain {...routeProps} note={note} />;
-                }}
-            />
-        </>
+              );
+            }}
+          />
+        ))}
+          <Route
+            path="/note/:noteId"
+            render={routeProps => {
+              const {noteId} = routeProps.match.params;
+              const note = findNote(notes, noteId);
+              return (
+                <NotePageMain 
+                  {...routeProps} 
+                  note={note} 
+                />
+              );
+            }}
+          />
+      </>
     );
   } 
 
@@ -96,8 +101,10 @@ class App extends Component {
             <Link to='/'>Noteful</Link>
           </h1>
         </header>
-        <nav className="App-Nav">{this.renderNavRoutes()}</nav>
-        <main className="App-Main">{this.renderMainRoutes()}</main>
+        <div className="Contents">
+          <nav className="App-Nav">{this.renderNavRoutes()}</nav>
+          <main className="App-Main">{this.renderMainRoutes()}</main>
+        </div>
       </div>
     );
   }    

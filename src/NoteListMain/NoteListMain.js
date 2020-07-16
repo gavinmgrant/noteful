@@ -18,7 +18,7 @@ export default function NoteListMain(props) {
                     </li>
                 )}
             </ul>
-            <div className='NoteListMain-Button-Container'>
+            <button className='NoteListMain-Button-Container'>
                 <AddButton
                     tag={Link}
                     to='/add-note'
@@ -27,7 +27,7 @@ export default function NoteListMain(props) {
                 >
                     Add Note
                 </AddButton>
-            </div>
+            </button>
         </section>
     )
 }

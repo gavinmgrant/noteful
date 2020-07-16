@@ -22,7 +22,7 @@ export default function NoteListNav(props) {
                     </li>
                 )}
             </ul>
-            <div className='NoteListNav-Button-Wrapper'>
+            <button className='NoteListNav-Button-Wrapper'>
                 <AddButton
                     tag={Link}
                     to='/add-folder'
@@ -31,7 +31,7 @@ export default function NoteListNav(props) {
                 >
                     Add Folder
                 </AddButton>
-            </div>
+            </button>
         </div>   
     )
 }

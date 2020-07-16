@@ -1,0 +1,22 @@
+.NoteListNav {
+    margin-right: 0px;
+}
+
+.NoteListNav-Folder-Link {
+    border: 1px solid lightgray;
+    height: 50px;
+    width: 100%;
+    padding-top: 25px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.NoteListNav-Folder-Link:hover {
+    cursor: pointer;
+    border: 1px solid black;
+}
+
+.active {
+    background-color: lightgray;
+    border: 1px solid black;
+}
