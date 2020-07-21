@@ -11,26 +11,25 @@ class AddFolder extends Component {
         super(props);
         this.state = {
             name: {
-                value: '',
-                touched: false
+                value: ''
             }
         }
     }
 
     updateName(name) {
-        this.setState({name: {value: name, touched: true}});
+        this.setState({name: {value: name}});
         console.log("Name: ", name)
     }
 
-    handleSubmit = event => {
-        // event.preventDefault();
-        const { name } = event.target;
-        const folder = {
+    handleSubmit = e => {
+        e.preventDefault();
+        const { name } = e.target.value;
+        const folderName = {
             name: name.value,
         }
         fetch(`${config.API_ENDPOINT}/folders`, {
             method: 'POST',
-            body:JSON.stringify(folder)
+            body:JSON.stringify(folderName)
         })
         .then(res => {
             if (!res.ok) {
@@ -67,9 +66,7 @@ class AddFolder extends Component {
                     <label htmlFor="name">Name</label>
                     <input type="text" className="Add-Folder-Input" 
                         name="name" id="name" onChange={e => this.updateName(e.target.value)}/>
-                    {this.state.name.touched && (
                     <ValidationError message={this.validateName()}/>
-                    )}
                 </div>
                 <AddButton
                     tag='button'

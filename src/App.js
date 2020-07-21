@@ -15,6 +15,18 @@ class App extends Component {
     folders: [],
   };
 
+  handleAddFolder = folder => {
+    this.setState({
+      folders: [ ...this.state.folders, folder],
+    })
+  }
+
+  handleDeleteNote = noteId => {
+    this.setState({
+      notes: this.state.notes.filter(note => note.id !== noteId)
+    });
+  };
+
   componentDidMount() {
     Promise.all([
       fetch(`${config.API_ENDPOINT}/notes`),
@@ -35,24 +47,6 @@ class App extends Component {
         console.error({error});
       })
   }
-
-  setFolders = folders => {
-    this.setState({
-      folders
-    })
-  }
-
-  handleAddFolder = folder => {
-    this.setState({
-      folders: [ ...this.state.folders, folder],
-    })
-  }
-
-  handleDeleteNote = noteId => {
-    this.setState({
-      notes: this.state.notes.filter(note => note.id !== noteId)
-    });
-  };
 
   renderNavRoutes() {
     return (
