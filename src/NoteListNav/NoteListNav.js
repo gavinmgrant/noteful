@@ -3,6 +3,7 @@ import { NavLink, Link } from 'react-router-dom';
 import AddButton from '../AddButton/AddButton';
 import { countNotesForFolder } from '../notes-helpers';
 import NotefulContext from '../NotefulContext';
+import PropTypes from 'prop-types';
 import './NoteListNav.css';
 
 class NoteListNav extends Component {
@@ -41,5 +42,11 @@ class NoteListNav extends Component {
         )
     }
 }
+
+NoteListNav.propTypes = {
+    folders: PropTypes.arrayOf(PropTypes.shape({
+        name: PropTypes.string.isRequired,
+    }))
+};
 
 export default NoteListNav;

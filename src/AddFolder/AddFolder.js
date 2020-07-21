@@ -23,7 +23,7 @@ class AddFolder extends Component {
 
     handleSubmit = e => {
         e.preventDefault();
-        const { name } = e.target.value;
+        const { name } = this.state;
         const folderName = {
             name: name.value,
         }

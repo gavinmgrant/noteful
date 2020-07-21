@@ -38,7 +38,7 @@ class AddNote extends Component {
 
     handleSubmit = e => {
         e.preventDefault();
-        const { name, content, folder } = e.target.value;
+        const { name, content, folder } = this.state;
         const newNote = {
             name: name.value,
             content: content.value,

@@ -4,6 +4,7 @@ import Note from '../Note/Note';
 import AddButton from '../AddButton/AddButton';
 import NotefulContext from '../NotefulContext';
 import { getNotesForFolder } from '../notes-helpers';
+import PropTypes from 'prop-types';
 import './NoteListMain.css'
 
 class NoteListMain extends Component {
@@ -45,5 +46,13 @@ class NoteListMain extends Component {
         );
     }
 }
+
+NoteListMain.propTypes = {
+    notes: PropTypes.arrayOf(PropTypes.shape({
+        name: PropTypes.string.isRequired,
+        folderId: PropTypes.string.isRequired,
+        content: PropTypes.string
+    }))
+};
 
 export default NoteListMain

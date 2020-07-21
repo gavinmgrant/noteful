@@ -8,6 +8,7 @@ import NotefulContext from './NotefulContext';
 import AddFolder from './AddFolder/AddFolder';
 import AddNote from './AddNote/AddNote';
 import config from './config';
+import NotefulError from './NotefulError';
 import './App.css';
 
 class App extends Component {  
@@ -106,8 +107,12 @@ class App extends Component {
             </h1>
           </header>
           <div className="Contents">
-            <nav className="App-Nav">{this.renderNavRoutes()}</nav>
-            <main className="App-Main">{this.renderMainRoutes()}</main>
+            <NotefulError>
+              <nav className="App-Nav">{this.renderNavRoutes()}</nav>
+            </NotefulError>
+            <NotefulError>
+              <main className="App-Main">{this.renderMainRoutes()}</main>
+            </NotefulError>
           </div>
         </div>
       </NotefulContext.Provider>
