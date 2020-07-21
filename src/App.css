@@ -41,11 +41,15 @@ header {
     align-items: flex-start;
 }
 
-button {
+button, input, select {
     background: none;
     color: black;
     border: 1px solid lightgray;
     padding: 10px;
+}
+
+button {
+    margin: 5px;
 }
 
 button:hover {

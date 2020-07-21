@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import AddButton from '../AddButton/AddButton';
 import ValidationError from '../ValidationError';
 import config from '../config';
 import NotefulContext from '../NotefulContext';
+import './AddFolder.css'
 
 class AddFolder extends Component {
     static contextType = NotefulContext;
@@ -62,25 +62,27 @@ class AddFolder extends Component {
         return (
             <form className="Add-Folder" onSubmit={e => this.handleSubmit(e.target.value)}>
                 <h2>Add Folder</h2>
-                <div>
+                <div className="Add-Folder-Form-Divs">
                     <label htmlFor="name">Name</label>
                     <input type="text" className="Add-Folder-Input" 
                         name="name" id="name" onChange={e => this.updateName(e.target.value)}/>
                     <ValidationError message={this.validateName()}/>
                 </div>
-                <AddButton
-                    tag='button'
-                    role='link'
-                    onClick={() => this.props.history.push('/')}
-                >
-                    Cancel
-                </AddButton>
-                <button 
-                    type="submit"
-                    disabled={this.validateName()}
-                >
-                    Save
-                </button>
+                <div> 
+                    <button 
+                        tag='button'
+                        role='link'
+                        onClick={() => this.props.history.push('/')}
+                    >
+                        Cancel
+                    </button>
+                    <button
+                        type="submit"
+                        disabled={this.validateName()}
+                    >
+                        Save
+                    </button>
+                </div>
             </form>
         )
     }
