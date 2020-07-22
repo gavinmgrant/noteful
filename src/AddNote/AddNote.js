@@ -24,12 +24,10 @@ class AddNote extends Component {
 
     updateName(name) {
         this.setState({name: {value: name}});
-        console.log("Name: ", name)
     }
 
     updateContent(content) {
         this.setState({content: {value: content}});
-        console.log("Content: ", content)
     }
 
     updateFolder(folder) {
@@ -38,15 +36,18 @@ class AddNote extends Component {
 
     handleSubmit = e => {
         e.preventDefault();
-        const { name, content, folder } = this.state;
+        const { name, content, folder } = e.target
         const newNote = {
             name: name.value,
             content: content.value,
-            folder: folder.value
+            folder: folder.value,
         }
         fetch(`${config.API_ENDPOINT}/notes`, {
             method: 'POST',
-            body:JSON.stringify(newNote)
+            body:JSON.stringify(newNote),
+            headers: {
+                'content-type': 'application/json',
+            }
         })
         .then(res => {
             if (!res.ok) {
@@ -57,10 +58,12 @@ class AddNote extends Component {
             return res.json()
         })
         .then(data => {
-            name.value = ''
-            content.value = ''
-            folder.value = ''
-            this.context.addNote(data)
+            this.context.addNote({
+                ...data,
+                name: name.value, 
+                content: content.value, 
+                folder: folder.value,
+            })
             this.props.history.push('/')
         })
         .catch(error => {
@@ -84,7 +87,7 @@ class AddNote extends Component {
         );
 
         return (
-            <form className="Add-Note" onSubmit={e => this.handleSubmit(e.target.value)}>
+            <form className="Add-Note" onSubmit={e => this.handleSubmit(e)}>
                 <h2>Add Note</h2>
                 <div className="Add-Note-Form-Divs">
                     <label htmlFor="name">Name</label>
@@ -104,7 +107,8 @@ class AddNote extends Component {
                     <input 
                         type='text' 
                         className="Add-Folder-Input"
-                        name='content' 
+                        name="content" 
+                        id="content" 
                         placeholder='Write note content here.'
                         onChange={e => this.updateContent(e.target.value)}
                     />
@@ -115,6 +119,8 @@ class AddNote extends Component {
                     </label>
                     <select
                         className="Add-Folder-Input"
+                        name="folder"
+                        id="folder"
                         onChange={e => this.updateFolder(e.target.value)}
                     >
                         {folderOptions}

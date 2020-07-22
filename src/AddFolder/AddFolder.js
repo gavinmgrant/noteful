@@ -18,18 +18,20 @@ class AddFolder extends Component {
 
     updateName(name) {
         this.setState({name: {value: name}});
-        console.log("Name: ", name)
     }
 
     handleSubmit = e => {
         e.preventDefault();
-        const { name } = this.state;
+        const { name } = e.target
         const folderName = {
             name: name.value,
         }
         fetch(`${config.API_ENDPOINT}/folders`, {
             method: 'POST',
-            body:JSON.stringify(folderName)
+            body:JSON.stringify(folderName),
+            headers: {
+                'content-type': 'application/json',
+            }
         })
         .then(res => {
             if (!res.ok) {
@@ -40,8 +42,7 @@ class AddFolder extends Component {
             return res.json()
         })
         .then(data => {
-            name.value = ''
-            this.context.addFolder(data)
+            this.context.addFolder({...data, name: name.value})
             this.props.history.push('/')
         })
         .catch(error => {
@@ -60,7 +61,7 @@ class AddFolder extends Component {
 
     render() {
         return (
-            <form className="Add-Folder" onSubmit={e => this.handleSubmit(e.target.value)}>
+            <form className="Add-Folder" onSubmit={e => this.handleSubmit(e)}>
                 <h2>Add Folder</h2>
                 <div className="Add-Folder-Form-Divs">
                     <label htmlFor="name">Name</label>
