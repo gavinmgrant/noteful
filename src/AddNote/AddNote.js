@@ -18,6 +18,9 @@ class AddNote extends Component {
             },
             folder: {
                 value: ''
+            },
+            folderId: {
+                value: ''
             }
         }
     }
@@ -30,17 +33,20 @@ class AddNote extends Component {
         this.setState({content: {value: content}});
     }
 
-    updateFolder(folder) {
+    updateFolder(folder, folderId) {
         this.setState({folder: {value: folder}});
+        this.setState({folderId: {value: folderId}});
     }
 
     handleSubmit = e => {
         e.preventDefault();
         const { name, content, folder } = e.target
+        const { folderId } = this.state
         const newNote = {
             name: name.value,
             content: content.value,
             folder: folder.value,
+            folderId: folderId.value,
         }
         fetch(`${config.API_ENDPOINT}/notes`, {
             method: 'POST',
@@ -63,6 +69,7 @@ class AddNote extends Component {
                 name: name.value, 
                 content: content.value, 
                 folder: folder.value,
+                folderId: folderId.value,
             })
             this.props.history.push('/')
         })
@@ -74,9 +81,16 @@ class AddNote extends Component {
     validateName() {
         const name = this.state.name.value.trim();
         if (name.length === 0) {
-            return 'Note name is required';
+            return 'Note name is required.';
         } else if (name.length < 3) {
-            return 'Note name must be at least 3 characters long';
+            return 'Note name must be at least 3 characters long.';
+        }
+    }
+
+    validateContent() {
+        const content = this.state.content.value.trim();
+        if (content.length === 0) {
+            return 'Note content is required.'
         }
     }
 
@@ -112,6 +126,7 @@ class AddNote extends Component {
                         placeholder='Write note content here.'
                         onChange={e => this.updateContent(e.target.value)}
                     />
+                    <ValidationError message={this.validateContent()}/>
                 </div>
                 <div className="Add-Note-Form-Divs">
                     <label htmlFor='folder'>
