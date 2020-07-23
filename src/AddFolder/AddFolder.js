@@ -63,6 +63,7 @@ class AddFolder extends Component {
         return (
             <form className="Add-Folder" onSubmit={e => this.handleSubmit(e)}>
                 <h2>Add Folder</h2>
+                <p>Enter a name for your folder.</p>
                 <div className="Add-Folder-Form-Divs">
                     <label htmlFor="name">Name</label>
                     <input type="text" className="Add-Folder-Input" 

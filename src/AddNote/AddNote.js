@@ -41,13 +41,14 @@ class AddNote extends Component {
     handleSubmit = e => {
         e.preventDefault();
         const { name, content, folder } = e.target
-        const { folderId } = this.state
+        let modified = new Date().toLocaleString();
         const newNote = {
             name: name.value,
             content: content.value,
-            folder: folder.value,
-            folderId: folderId.value,
+            folderId: folder.value,
+            modified: modified,
         }
+
         fetch(`${config.API_ENDPOINT}/notes`, {
             method: 'POST',
             body:JSON.stringify(newNote),
@@ -68,8 +69,8 @@ class AddNote extends Component {
                 ...data,
                 name: name.value, 
                 content: content.value, 
-                folder: folder.value,
-                folderId: folderId.value,
+                folderId: folder.value,
+                modified: modified,
             })
             this.props.history.push('/')
         })
@@ -97,12 +98,13 @@ class AddNote extends Component {
     render() {
         const { folders=[] } = this.context
         let folderOptions = folders.map((folder) =>
-            <option key={folder.name}>{folder.name}</option>
+            <option key={folder.id} value={folder.id}>{folder.name}</option>
         );
 
         return (
             <form className="Add-Note" onSubmit={e => this.handleSubmit(e)}>
                 <h2>Add Note</h2>
+                <p>Enter a name, contents, and folder name for your note.</p>
                 <div className="Add-Note-Form-Divs">
                     <label htmlFor="name">Name</label>
                     <input 

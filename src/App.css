@@ -60,3 +60,8 @@ button:hover {
 button:visited {
     color: black;
 }
+
+.error {
+    color: red;
+    font-style: italic;
+}

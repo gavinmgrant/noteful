@@ -11,7 +11,6 @@ class NoteListNav extends Component {
     
     render() {
         const { folders=[], notes=[] } = this.context
-        console.log(folders)
         return (
             <div className='NoteListNav'>
                 <ul className='NoteListNav-List'>
