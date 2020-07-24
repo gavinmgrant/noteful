@@ -48,6 +48,14 @@ button, input, select {
     padding: 10px;
 }
 
+input, select {
+    width: 100%;
+    display: block;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
 button {
     margin: 5px;
 }
@@ -64,4 +72,10 @@ button:visited {
 .error {
     color: red;
     font-style: italic;
+}
+
+form {
+    margin: 0;
+    border: 1px solid lightgray;
+    padding: 0 20px 20px 20px;
 }
