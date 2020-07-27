@@ -47,12 +47,4 @@ class NoteListMain extends Component {
     }
 }
 
-NoteListMain.propTypes = {
-    notes: PropTypes.arrayOf(PropTypes.shape({
-        name: PropTypes.string.isRequired,
-        folderId: PropTypes.string.isRequired,
-        content: PropTypes.string
-    }))
-};
-
 export default NoteListMain

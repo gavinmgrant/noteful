@@ -66,7 +66,8 @@ Note.propTypes = {
     notes: PropTypes.arrayOf(PropTypes.shape({
         name: PropTypes.string.isRequired,
         id: PropTypes.string.isRequired,
-        modified: PropTypes.string
+        modified: PropTypes.string,
+        onDeleteNote: PropTypes.object
     }))
 };
 

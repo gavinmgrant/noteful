@@ -92,6 +92,8 @@ class AddNote extends Component {
         const content = this.state.content.value.trim();
         if (content.length === 0) {
             return 'Note content is required.'
+        } else if (content.length < 6) {
+            return 'Note content must be at least 6 characters long.'
         }
     }
 
@@ -112,6 +114,7 @@ class AddNote extends Component {
                         className="Add-Folder-Input" 
                         name="name" 
                         id="name" 
+                        placeholder='Write note name here.'
                         onChange={e => this.updateName(e.target.value)}
                     />
                     <ValidationError message={this.validateName()}/>
@@ -153,7 +156,7 @@ class AddNote extends Component {
                     </button>
                     <button 
                         type="submit"
-                        disabled={this.validateName()}
+                        disabled={this.validateName() || this.validateContent()}
                     >
                         Save
                     </button>
