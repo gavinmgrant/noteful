@@ -20,7 +20,7 @@ class NoteListNav extends Component {
                                 className='NoteListNav-Folder-Link'
                                 to={`/folder/${folder.id}`}
                             >
-                                {folder.name}
+                                {folder.folder_name}
                                 <span className='NoteListNav-Number'>
                                     {' - '}{countNotesForFolder(notes, folder.id)} notes
                                 </span>
@@ -45,7 +45,7 @@ class NoteListNav extends Component {
 
 NoteListNav.propTypes = {
     folders: PropTypes.arrayOf(PropTypes.shape({
-        name: PropTypes.string.isRequired,
+        folder_name: PropTypes.string.isRequired,
     }))
 };
 

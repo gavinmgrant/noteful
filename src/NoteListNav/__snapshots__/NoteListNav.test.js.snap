@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NoteListNav component renders a .NoteListNav by default 1`] = `
+<div
+  className="NoteListNav"
+>
+  <ul
+    className="NoteListNav-List"
+  />
+  <button
+    className="NoteListNav-Button-Wrapper"
+  >
+    <AddButton
+      className="NoteListNav-Add-Folder-Button"
+      tag={
+        Object {
+          "$$typeof": Symbol(react.forward_ref),
+          "displayName": "Link",
+          "propTypes": Object {
+            "innerRef": [Function],
+            "onClick": [Function],
+            "replace": [Function],
+            "target": [Function],
+            "to": [Function],
+          },
+          "render": [Function],
+        }
+      }
+      to="/add-folder"
+      type="button"
+    >
+      Add Folder
+    </AddButton>
+  </button>
+</div>
+`;
+
+exports[`NoteListNav component renders a link in ul for each folder in array 1`] = `
+<ul
+  className="NoteListNav-List"
+/>
+`;

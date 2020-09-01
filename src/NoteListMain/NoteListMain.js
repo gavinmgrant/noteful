@@ -4,8 +4,7 @@ import Note from '../Note/Note';
 import AddButton from '../AddButton/AddButton';
 import NotefulContext from '../NotefulContext';
 import { getNotesForFolder } from '../notes-helpers';
-import PropTypes from 'prop-types';
-import './NoteListMain.css'
+import './NoteListMain.css';
 
 class NoteListMain extends Component {
     static defaultProps = {
@@ -26,7 +25,7 @@ class NoteListMain extends Component {
                         <li key={note.id}>
                             <Note 
                                 id={note.id}
-                                name={note.name}
+                                note_name={note.note_name}
                                 modified={note.modified}
                             />  
                         </li>
@@ -47,4 +46,4 @@ class NoteListMain extends Component {
     }
 }
 
-export default NoteListMain
+export default NoteListMain;

@@ -1,0 +1,72 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Note component renders a .Note by default 1`] = `
+<div
+  className="NoteItem"
+>
+  <div
+    className="NoteDetails"
+  >
+    <h2
+      className="NoteName"
+    >
+      <Link
+        to="/note/undefined"
+      />
+    </h2>
+    <p
+      className="NoteModified"
+    >
+      Modified on: 
+    </p>
+  </div>
+  <div
+    className="NoteButton-Area"
+  >
+    <button
+      className="NoteButton-Delete"
+      onClick={[Function]}
+      type="button"
+    >
+      Delete Note
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Note component renders the Note given props 1`] = `
+<div
+  className="NoteItem"
+>
+  <div
+    className="NoteDetails"
+  >
+    <h2
+      className="NoteName"
+    >
+      <Link
+        to="/note/a"
+      >
+        test-class-name
+      </Link>
+    </h2>
+    <p
+      className="NoteModified"
+    >
+      Modified on: 
+      <Component />
+    </p>
+  </div>
+  <div
+    className="NoteButton-Area"
+  >
+    <button
+      className="NoteButton-Delete"
+      onClick={[Function]}
+      type="button"
+    >
+      Delete Note
+    </button>
+  </div>
+</div>
+`;

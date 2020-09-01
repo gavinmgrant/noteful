@@ -37,34 +37,34 @@ class Note extends Component {
     }
     
     render() {
-        const { name, id, modified } = this.props
+        const { note_name, id, modified } = this.props
         return (
-            <div className='NoteItem'>
-                <div className='NoteDetails'>
-                    <h2 className='NoteName'>   
-                        <Link to={`/note/${id}`}>
-                            {name}
-                        </Link>
-                    </h2>
-                    <p className='NoteModified'>Modified on: {modified}</p>
-                </div>
-                <div className='NoteButton-Area'>
-                    <button 
-                        className='NoteButton-Delete'
-                        type='button'
-                        onClick={this.handleClickDelete}
-                    >
-                        Delete Note
-                    </button>
-                </div>
-            </div>   
+                <div className='NoteItem'>
+                    <div className='NoteDetails'>
+                        <h2 className='NoteName'>   
+                            <Link to={`/note/${id}`}>
+                                {note_name}
+                            </Link>
+                        </h2>
+                        <p className='NoteModified'>Modified on: {modified}</p>
+                    </div>
+                    <div className='NoteButton-Area'>
+                        <button 
+                            className='NoteButton-Delete'
+                            type='button'
+                            onClick={this.handleClickDelete}
+                        >
+                            Delete Note
+                        </button>
+                    </div>
+                </div> 
         )
     }
 }
 
 Note.propTypes = {
     notes: PropTypes.arrayOf(PropTypes.shape({
-        name: PropTypes.string.isRequired,
+        note_name: PropTypes.string.isRequired,
         id: PropTypes.string.isRequired,
         modified: PropTypes.string,
         onDeleteNote: PropTypes.object

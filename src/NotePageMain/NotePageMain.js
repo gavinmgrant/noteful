@@ -19,13 +19,13 @@ class NotePageMain extends Component {
     render() {
         const { notes=[] } = this.context
         const { noteId } = this.props.match.params
-        const note = findNote(notes, noteId) || { content: '' }
+        const note = findNote(notes, noteId) || { content: 'No content found.' }
         
         return (
             <section className='NotePageMain'>
                 <Note
                     id={note.id}
-                    name={note.name}
+                    note_name={note.note_name}
                     modified={note.modified}
                     onDeleteNote={this.handleDeleteNote}
                 />

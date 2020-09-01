@@ -15,7 +15,7 @@ class NotefulError extends Component {
     render() {
         if (this.state.hasError) {
             return (
-                <h2>Can not display this content.</h2>
+                <h2>Cannot display this content.</h2>
             );
         }
         return this.props.children;

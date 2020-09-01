@@ -90,13 +90,22 @@ class App extends Component {
     );
   } 
 
+  updateNote = updatedNote => {
+    this.setState({
+      notes: this.state.notes.map(note =>
+        (note.id !== updatedNote.id) ? note : updatedNote
+      )
+    })
+  }
+
   render() {
     const value = {
       notes: this.state.notes,
       folders: this.state.folders,
       deleteNote: this.handleDeleteNote,
       addFolder: this.handleAddFolder,
-      addNote: this.handleAddNote
+      addNote: this.handleAddNote,
+      updateNote: this.updateNote,
     };
     return (
       <NotefulContext.Provider value={value}>

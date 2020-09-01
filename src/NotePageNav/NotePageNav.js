@@ -33,7 +33,7 @@ class NotePageNav extends Component {
             <p>Folder:</p>
                 {folder && (
                     <h3 className='NotePageNav-Folder-Name'>
-                        {folder.name}
+                        {folder.folder_name}
                     </h3>
                 )}
             </div>

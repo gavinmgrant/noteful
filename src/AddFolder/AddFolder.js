@@ -10,21 +10,21 @@ class AddFolder extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            name: {
+            folder_name: {
                 value: ''
             }
         }
     }
 
     updateName(name) {
-        this.setState({name: {value: name}});
+        this.setState({folder_name: {value: name}});
     }
 
     handleSubmit = e => {
         e.preventDefault();
-        const { name } = e.target
+        const { folder_name } = e.target
         const folderName = {
-            name: name.value,
+            folder_name: folder_name.value,
         }
         fetch(`${config.API_ENDPOINT}/folders`, {
             method: 'POST',
@@ -42,7 +42,7 @@ class AddFolder extends Component {
             return res.json()
         })
         .then(data => {
-            this.context.addFolder({...data, name: name.value})
+            this.context.addFolder({...data, folder_name: folder_name.value})
             this.props.history.push('/')
         })
         .catch(error => {
@@ -51,7 +51,7 @@ class AddFolder extends Component {
     }
 
     validateName() {
-        const name = this.state.name.value.trim();
+        const name = this.state.folder_name.value.trim();
         if (name.length === 0) {
             return 'Folder name is required.';
         } else if (name.length < 3) {
@@ -67,7 +67,7 @@ class AddFolder extends Component {
                 <div className="Add-Folder-Form-Divs">
                     <label htmlFor="name">Name</label>
                     <input type="text" className="Add-Folder-Input" 
-                        name="name" id="name" onChange={e => this.updateName(e.target.value)}/>
+                        folder_name="folder_name" id="folder_name" onChange={e => this.updateName(e.target.value)}/>
                     <ValidationError message={this.validateName()}/>
                 </div>
                 <div> 

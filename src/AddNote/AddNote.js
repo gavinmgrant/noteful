@@ -10,7 +10,7 @@ class AddNote extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            name: {
+            note_name: {
                 value: ''
             },
             content: {
@@ -25,8 +25,8 @@ class AddNote extends Component {
         }
     }
 
-    updateName(name) {
-        this.setState({name: {value: name}});
+    updateName(note_name) {
+        this.setState({note_name: {value: note_name}});
     }
 
     updateContent(content) {
@@ -40,10 +40,10 @@ class AddNote extends Component {
 
     handleSubmit = e => {
         e.preventDefault();
-        const { name, content, folder } = e.target
+        const { note_name, content, folder } = e.target
         let modified = new Date().toLocaleString();
         const newNote = {
-            name: name.value,
+            note_name: note_name.value,
             content: content.value,
             folderId: folder.value,
             modified: modified,
@@ -67,7 +67,7 @@ class AddNote extends Component {
         .then(data => {
             this.context.addNote({
                 ...data,
-                name: name.value, 
+                note_name: note_name.value, 
                 content: content.value, 
                 folderId: folder.value,
                 modified: modified,
@@ -80,7 +80,7 @@ class AddNote extends Component {
     }
 
     validateName() {
-        const name = this.state.name.value.trim();
+        const name = this.state.note_name.value.trim();
         if (name.length === 0) {
             return 'Note name is required.';
         } else if (name.length < 3) {
@@ -112,8 +112,8 @@ class AddNote extends Component {
                     <input 
                         type="text" 
                         className="Add-Folder-Input" 
-                        name="name" 
-                        id="name" 
+                        name="note_name" 
+                        id="note_name" 
                         placeholder='Write note name here.'
                         onChange={e => this.updateName(e.target.value)}
                     />

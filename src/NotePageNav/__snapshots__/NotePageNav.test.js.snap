@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NotePageNav component renders a .NotePageNav by default 1`] = `
+<div
+  className="NotePageNav"
+>
+  <AddButton
+    className="NotePageNav-Back-Button"
+    onClick={[Function]}
+    role="link"
+    tag="button"
+  >
+    Go Back
+  </AddButton>
+  <p>
+    Folder:
+  </p>
+</div>
+`;
+
+exports[`NotePageNav component renders a h3 with folder name when in props 1`] = `null`;
