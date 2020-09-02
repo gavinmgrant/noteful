@@ -49,6 +49,9 @@ class Note extends Component {
                         <p className='NoteModified'>Modified on: {modified}</p>
                     </div>
                     <div className='NoteButton-Area'>
+                        <Link to={`/edit-note/${id}`}>
+                            Edit
+                        </Link>
                         <button 
                             className='NoteButton-Delete'
                             type='button'

@@ -66,7 +66,7 @@ class EditFolder extends Component {
         })
         .then(() => {
             this.resetFields(newFolder)
-            // this.context.updateFolder(newFolder)
+            this.context.updateFolder(newFolder)
             this.props.history.push('/')
         })
         .catch(error => {
@@ -84,15 +84,6 @@ class EditFolder extends Component {
     handleClickCancel = () => {
         this.props.history.push('/')
     };
-
-    /* validateName() {
-        const name = this.state.folder_name.value.trim();
-        if (name.length === 0) {
-            return 'Folder name is required.';
-        } else if (name.length < 3) {
-            return 'Folder name must be at least 3 characters long.';
-        }
-    } */
 
     render() {
         const { folder_name } = this.state

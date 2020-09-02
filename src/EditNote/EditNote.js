@@ -95,7 +95,7 @@ class EditNote extends Component {
         this.setState({
             id: newFields.id || '',
             note_name: newFields.note_name || '',
-            context: newFields.context || '',
+            content: newFields.content || '',
             folder: newFields.folder || '',
         })
     };
@@ -104,72 +104,52 @@ class EditNote extends Component {
         this.props.history.push('/')
     };
 
-    validateName() {
-        const name = this.state.note_name.value.trim();
-        if (name.length === 0) {
-            return 'Note name is required.';
-        } else if (name.length < 3) {
-            return 'Note name must be at least 3 characters long.';
-        }
-    }
-
-    validateContent() {
-        const content = this.state.content.value.trim();
-        if (content.length === 0) {
-            return 'Note content is required.'
-        } else if (content.length < 6) {
-            return 'Note content must be at least 6 characters long.'
-        }
-    }
-
     render() {
         const { error, note_name, content, folder } = this.state
         const { folders=[] } = this.context
         let folderOptions = folders.map((folder) =>
-            <option key={folder.id} value={folder.id}>{folder.name}</option>
+            <option key={folder.id} value={folder.id}>{folder.folder_name}</option>
         );
 
         return (
-            <form className="Add-Note" onSubmit={this.handleSubmit}>
+            <form className="Edit-Note" onSubmit={this.handleSubmit}>
                 <h2>Edit Note</h2>
-                <p>Enter a name, contents, and folder name for this note.</p>
+                <p>Edit the name, contents, or folder name for this note.</p>
                 <div className='EditNote__error' role='alert'>
                         {error && <p>{error.message}</p>}
                 </div>
-                <div className="Add-Note-Form-Divs">
+                <div className="Edit-Note-Form-Divs">
                     <label htmlFor="name">Name</label>
                     <input 
                         type="text" 
-                        className="Add-Folder-Input" 
+                        className="Edit-Folder-Input" 
                         name="name" 
                         id="name" 
                         placeholder='Write note name here.'
                         value={note_name}
                         onChange={this.handleChangeName}
                     />
-                    <ValidationError message={this.validateName()}/>
                 </div>
-                <div className="Add-Note-Form-Divs">
+                <div className="Edit-Note-Form-Divs">
                     <label htmlFor='content'>
                         Content
                     </label>
                     <input 
                         type='text' 
-                        className="Add-Folder-Input"
+                        className="Edit-Folder-Input"
                         name="content" 
                         id="content" 
                         placeholder='Write note content here.'
                         value={content}
                         onChange={this.handleChangeContent}
                     />
-                    <ValidationError message={this.validateContent()}/>
                 </div>
-                <div className="Add-Note-Form-Divs">
+                <div className="Edit-Note-Form-Divs">
                     <label htmlFor='folder'>
                         Folder
                     </label>
                     <select
-                        className="Add-Folder-Input"
+                        className="Edit-Folder-Input"
                         name="folder"
                         id="folder"
                         value={folder}

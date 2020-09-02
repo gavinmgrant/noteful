@@ -12,7 +12,7 @@ class NoteListNav extends Component {
         onDeleteFolder: () => {},
     }
     static contextType = NotefulContext;
-    
+
     handleClickDelete = (e, id) => {
         e.preventDefault()
     
@@ -26,7 +26,7 @@ class NoteListNav extends Component {
             if (!res.ok) 
                 throw new Error(`Could not delete item ${id}.`)
             return
-            })
+        })
         .then(() => {
             this.context.deleteFolder(id)
             // allow parent to perform extra behaviour
@@ -43,26 +43,26 @@ class NoteListNav extends Component {
             <div className='NoteListNav'>
                 <ul className='NoteListNav-List'>
                     {folders.map(folder =>
-                        <li key={folder.id}>
+                        <li key={folder.id} className='NoteListNav-Folder-Link'>
                             <NavLink
-                                className='NoteListNav-Folder-Link'
                                 to={`/folders/${folder.id}`}
                             >
-                                <h3>{folder.folder_name}</h3>
-                                {'('}{countNotesForFolder(notes, folder.id)}{')'} notes
-                                <div className='FolderButton-Area'>
-                                    <Link to={`/edit-folder/${folder.id}`}>
-                                        Edit
-                                    </Link>
-                                    <button 
-                                        className='FolderButton-Delete'
-                                        type='button'
-                                        onClick={(e) => this.handleClickDelete(e, folder.id)}
-                                    >
-                                        Delete
-                                    </button>
-                                </div>
+                                <h3>{folder.folder_name}
+                                {' ('}{countNotesForFolder(notes, folder.id)} notes)
+                                </h3>
                             </NavLink>
+                            <div className='FolderButton-Area'>
+                            <Link to={`/edit-folder/${folder.id}`}>
+                                Edit
+                            </Link>
+                            <button 
+                                className='FolderButton-Delete'
+                                type='button'
+                                onClick={(e) => this.handleClickDelete(e, folder.id)}
+                            >
+                                Delete
+                            </button>
+                            </div>
                         </li>
                     )}
                 </ul>

@@ -19,7 +19,10 @@
 }
 
 .active {
-    background-color: lightyellow;
-    border: 1px solid black;
+    background-color: yellow;
 }
 
+h3 {
+    margin: 0;
+    padding: 5px;
+}

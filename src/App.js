@@ -108,6 +108,14 @@ class App extends Component {
     })
   }
 
+  updateFolder = updatedFolder => {
+    this.setState({
+      folders: this.state.folders.map(folder =>
+        (folder.id !== updatedFolder.id) ? folder : updatedFolder
+      )
+    })
+  }
+
   render() {
     const value = {
       notes: this.state.notes,
@@ -117,6 +125,7 @@ class App extends Component {
       addFolder: this.handleAddFolder,
       addNote: this.handleAddNote,
       updateNote: this.updateNote,
+      updateFolder: this.updateFolder,
     };
     return (
       <NotefulContext.Provider value={value}>
