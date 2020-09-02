@@ -23,8 +23,8 @@ class Note extends Component {
         })
         .then(res => {
             if (!res.ok) 
-                return res.json().then(e => Promise.reject(e))
-            return res.json()
+                throw new Error(`Could not delete item ${noteId}.`)
+            return
             })
         .then(() => {
             this.context.deleteNote(noteId)
@@ -42,7 +42,7 @@ class Note extends Component {
                 <div className='NoteItem'>
                     <div className='NoteDetails'>
                         <h2 className='NoteName'>   
-                            <Link to={`/note/${id}`}>
+                            <Link to={`/notes/${id}`}>
                                 {note_name}
                             </Link>
                         </h2>

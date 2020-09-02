@@ -42,10 +42,11 @@ class AddNote extends Component {
         e.preventDefault();
         const { note_name, content, folder } = e.target
         let modified = new Date().toLocaleString();
+        debugger
         const newNote = {
             note_name: note_name.value,
             content: content.value,
-            folderId: folder.value,
+            folder: folder.value,
             modified: modified,
         }
 
@@ -100,7 +101,7 @@ class AddNote extends Component {
     render() {
         const { folders=[] } = this.context
         let folderOptions = folders.map((folder) =>
-            <option key={folder.id} value={folder.id}>{folder.name}</option>
+            <option key={folder.id} value={folder.id}>{folder.folder_name}</option>
         );
 
         return (

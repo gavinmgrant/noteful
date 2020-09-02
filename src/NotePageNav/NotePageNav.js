@@ -12,7 +12,7 @@ class NotePageNav extends Component {
         match: {
             params: {}
         }
-    }
+    } 
     static contextType = NotefulContext;
     
     render() {
