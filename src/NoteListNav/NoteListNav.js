@@ -13,11 +13,10 @@ class NoteListNav extends Component {
     }
     static contextType = NotefulContext;
     
-    handleClickDelete = e => {
+    handleClickDelete = (e, id) => {
         e.preventDefault()
-        const folderId = this.context.id
     
-        fetch(`${config.API_ENDPOINT}/folders/${folderId}`, {
+        fetch(`${config.API_ENDPOINT}/folders/${id}`, {
             method: 'DELETE',
             headers: {
                 'content-type': 'application/json'
@@ -25,13 +24,13 @@ class NoteListNav extends Component {
         })
         .then(res => {
             if (!res.ok) 
-                throw new Error(`Could not delete item ${folderId}.`)
+                throw new Error(`Could not delete item ${id}.`)
             return
             })
         .then(() => {
-            this.context.deleteFolder(folderId)
+            this.context.deleteFolder(id)
             // allow parent to perform extra behaviour
-            this.props.onDeleteFolder(folderId)
+            this.props.onDeleteFolder(id)
         })
         .catch(error => {
             console.error({ error })
@@ -57,7 +56,7 @@ class NoteListNav extends Component {
                                     <button 
                                         className='FolderButton-Delete'
                                         type='button'
-                                        onClick={this.handleClickDelete}
+                                        onClick={(e) => this.handleClickDelete(e, folder.id)}
                                     >
                                         Delete
                                     </button>
