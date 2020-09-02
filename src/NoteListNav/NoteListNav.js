@@ -48,11 +48,12 @@ class NoteListNav extends Component {
                                 className='NoteListNav-Folder-Link'
                                 to={`/folders/${folder.id}`}
                             >
-                                {folder.folder_name}
-                                <span className='NoteListNav-Number'>
-                                    {' - '}{countNotesForFolder(notes, folder.id)} notes
-                                </span>
+                                <h3>{folder.folder_name}</h3>
+                                {'('}{countNotesForFolder(notes, folder.id)}{')'} notes
                                 <div className='FolderButton-Area'>
+                                    <Link to={`/edit-folder/${folder.id}`}>
+                                        Edit
+                                    </Link>
                                     <button 
                                         className='FolderButton-Delete'
                                         type='button'

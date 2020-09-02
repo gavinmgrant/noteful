@@ -10,6 +10,8 @@ import AddNote from './AddNote/AddNote';
 import config from './config';
 import NotefulError from './NotefulError';
 import './App.css';
+import EditFolder from './EditFolder/EditFolder';
+import EditNote from './EditNote/EditNote';
 
 class App extends Component {  
   state = {
@@ -75,6 +77,7 @@ class App extends Component {
           ))}
           <Route path="/notes/:noteId" component={NotePageNav} />
           <Route path="/add-folder" component={AddFolder} />
+          <Route path="/edit-folder/:folderId/" component={EditFolder} />
       </>
     );
   }
@@ -92,6 +95,7 @@ class App extends Component {
           ))}
           <Route path="/notes/:noteId" component={NotePageMain} />
           <Route path="/add-note" component={AddNote} />
+          <Route path="/edit-note/:noteId/" component={EditNote} />
       </>
     );
   } 

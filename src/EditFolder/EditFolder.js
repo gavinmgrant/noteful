@@ -18,7 +18,7 @@ class EditFolder extends Component {
     static contextType = NotefulContext;
 
     state = {
-            name: '',
+            folder_name: '',
     }
 
     componentDidMount() {
@@ -35,7 +35,7 @@ class EditFolder extends Component {
         .then(responseData => {
             this.setState({
                 id: responseData.id,
-                name: responseData.name,
+                folder_name: responseData.folder_name,
             })
         })
         .catch(error => {
@@ -45,14 +45,14 @@ class EditFolder extends Component {
     }
 
     handleNameChange = e => {
-        this.setState({ name: e.target.value });
+        this.setState({ folder_name: e.target.value });
     };
 
     handleSubmit = e => {
         e.preventDefault();
         const { folderId } = this.props.match.params;
-        const { name } = this.state
-        const newFolder = { name }
+        const { folder_name } = this.state
+        const newFolder = { folder_name }
         fetch(config.API_ENDPOINT + `/folders/${folderId}`, {
             method: 'PATCH',
             body:JSON.stringify(newFolder),
@@ -66,7 +66,7 @@ class EditFolder extends Component {
         })
         .then(() => {
             this.resetFields(newFolder)
-            this.context.updateFolder(newFolder)
+            // this.context.updateFolder(newFolder)
             this.props.history.push('/')
         })
         .catch(error => {
@@ -77,7 +77,7 @@ class EditFolder extends Component {
     resetFields = (newFields) => {
         this.setState({
             id: newFields.id || '',
-            name: newFields.name || '',
+            folder_name: newFields.folder_name || '',
         })
     };
 
@@ -85,25 +85,31 @@ class EditFolder extends Component {
         this.props.history.push('/')
     };
 
-    validateName() {
-        const name = this.state.name.value.trim();
+    /* validateName() {
+        const name = this.state.folder_name.value.trim();
         if (name.length === 0) {
             return 'Folder name is required.';
         } else if (name.length < 3) {
             return 'Folder name must be at least 3 characters long.';
         }
-    }
+    } */
 
     render() {
+        const { folder_name } = this.state
         return (
-            <form className="Add-Folder" onSubmit={e => this.handleSubmit(e)}>
-                <h2>Add Folder</h2>
-                <p>Enter a name for your folder.</p>
-                <div className="Add-Folder-Form-Divs">
+            <form className="Edit-Folder" onSubmit={e => this.handleSubmit(e)}>
+                <h2>Edit Folder</h2>
+                <p>Edit the name for your folder.</p>
+                <div className="Edit-Folder-Form-Divs">
                     <label htmlFor="name">Name</label>
-                    <input type="text" className="Add-Folder-Input" 
-                        name="name" id="name" onChange={e => this.updateName(e.target.value)}/>
-                    <ValidationError message={this.validateName()}/>
+                    <input 
+                        type="text" 
+                        className="Edit-Folder-Input" 
+                        name="folder_name" 
+                        id="folder_name" 
+                        placeholder={folder_name}
+                        value={folder_name} 
+                        onChange={this.handleNameChange}/>
                 </div>
                 <div> 
                     <button 
@@ -115,7 +121,6 @@ class EditFolder extends Component {
                     </button>
                     <button
                         type="submit"
-                        disabled={this.validateName()}
                     >
                         Save
                     </button>
