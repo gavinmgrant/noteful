@@ -18,7 +18,7 @@ class NoteListMain extends Component {
     // Add componentDidMount with fetch call to refresh notes/get all notes
     // Long term call endpoint to get notes by id /api/folders/folderId
     
-    componentDidMount() {
+    /* componentDidMount() {
         Promise.all([
           fetch(`${config.API_ENDPOINT}/notes`),
           fetch(`${config.API_ENDPOINT}/folders`)
@@ -37,7 +37,7 @@ class NoteListMain extends Component {
           .catch(error => {
             console.error({error});
           })
-    }
+    } */
 
     render() {
         const { folderId } = this.props.match.params

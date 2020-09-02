@@ -21,7 +21,10 @@ class AddNote extends Component {
             },
             folderId: {
                 value: ''
-            }
+            },
+            modified: {
+                value: ''
+            },
         }
     }
 
@@ -42,7 +45,6 @@ class AddNote extends Component {
         e.preventDefault();
         const { note_name, content, folder } = e.target
         let modified = new Date().toLocaleString();
-        debugger
         const newNote = {
             note_name: note_name.value,
             content: content.value,
