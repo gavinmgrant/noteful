@@ -51,8 +51,8 @@ class EditFolder extends Component {
     handleSubmit = e => {
         e.preventDefault();
         const { folderId } = this.props.match.params;
-        const { folder_name } = this.state
-        const newFolder = { folder_name }
+        const { id, folder_name } = this.state
+        const newFolder = { id, folder_name }
         fetch(config.API_ENDPOINT + `/folders/${folderId}`, {
             method: 'PATCH',
             body:JSON.stringify(newFolder),
@@ -85,8 +85,18 @@ class EditFolder extends Component {
         this.props.history.push('/')
     };
 
+    validateName() {
+        const name = this.state.folder_name.trim();
+        if (name.length === 0) {
+            return 'Folder name is required.';
+        } else if (name.length < 3) {
+            return 'Folder name must be at least 3 characters long.';
+        }
+    }
+
     render() {
         const { folder_name } = this.state
+
         return (
             <form className="Edit-Folder" onSubmit={e => this.handleSubmit(e)}>
                 <h2>Edit Folder</h2>
@@ -101,19 +111,21 @@ class EditFolder extends Component {
                         placeholder={folder_name}
                         value={folder_name} 
                         onChange={this.handleNameChange}/>
+                    <ValidationError message={this.validateName()}/>
                 </div>
                 <div> 
+                    <button
+                        type="submit"
+                        disabled={this.validateName()}
+                    >
+                        Save
+                    </button>
                     <button 
                         tag='button'
                         role='link'
                         onClick={() => this.props.history.push('/')}
                     >
                         Cancel
-                    </button>
-                    <button
-                        type="submit"
-                    >
-                        Save
                     </button>
                 </div>
             </form>

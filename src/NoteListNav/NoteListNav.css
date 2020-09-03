@@ -26,3 +26,13 @@ h3 {
     margin: 0;
     padding: 5px;
 }
+
+.FolderButton-Delete {
+    margin-left: 20px;
+}
+
+.FolderButton-Delete:hover {
+    border: 1px solid red;
+    background-color: red;
+    color: white;
+}

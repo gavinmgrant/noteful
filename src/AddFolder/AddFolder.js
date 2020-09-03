@@ -71,18 +71,18 @@ class AddFolder extends Component {
                     <ValidationError message={this.validateName()}/>
                 </div>
                 <div> 
+                    <button
+                        type="submit"
+                        disabled={this.validateName()}
+                    >
+                        Save
+                    </button>
                     <button 
                         tag='button'
                         role='link'
                         onClick={() => this.props.history.push('/')}
                     >
                         Cancel
-                    </button>
-                    <button
-                        type="submit"
-                        disabled={this.validateName()}
-                    >
-                        Save
                     </button>
                 </div>
             </form>

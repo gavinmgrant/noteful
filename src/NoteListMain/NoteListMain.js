@@ -14,9 +14,6 @@ class NoteListMain extends Component {
     }
     static contextType = NotefulContext;
 
-    // Add componentDidMount with fetch call to refresh notes/get all notes
-    // Long term call endpoint to get notes by id /api/folders/folderId
-
     render() {
         const { folderId } = this.props.match.params
         const { notes=[] } = this.context

@@ -104,6 +104,24 @@ class EditNote extends Component {
         this.props.history.push('/')
     };
 
+    validateName() {
+        const name = this.state.note_name.trim();
+        if (name.length === 0) {
+            return 'Note name is required.';
+        } else if (name.length < 3) {
+            return 'Note name must be at least 3 characters long.';
+        }
+    }
+
+    validateContent() {
+        const content = this.state.content.trim();
+        if (content.length === 0) {
+            return 'Note content is required.'
+        } else if (content.length < 6) {
+            return 'Note content must be at least 6 characters long.'
+        }
+    }
+
     render() {
         const { error, note_name, content, folder } = this.state
         const { folders=[] } = this.context
@@ -129,6 +147,7 @@ class EditNote extends Component {
                         value={note_name}
                         onChange={this.handleChangeName}
                     />
+                    <ValidationError message={this.validateName()}/>
                 </div>
                 <div className="Edit-Note-Form-Divs">
                     <label htmlFor='content'>
@@ -143,6 +162,7 @@ class EditNote extends Component {
                         value={content}
                         onChange={this.handleChangeContent}
                     />
+                    <ValidationError message={this.validateContent()}/>
                 </div>
                 <div className="Edit-Note-Form-Divs">
                     <label htmlFor='folder'>
@@ -159,16 +179,17 @@ class EditNote extends Component {
                     </select>
                 </div>
                 <div>
+                    <button 
+                        type="submit"
+                        disabled={this.validateName() || this.validateContent()}
+                    >
+                        Save
+                    </button>
                     <button
                         type='button'
                         onClick={this.handleClickCancel}
                     >
                         Cancel
-                    </button>
-                    <button 
-                        type="submit"
-                    >
-                        Save
                     </button>
                 </div>
             </form>

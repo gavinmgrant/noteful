@@ -32,6 +32,13 @@
     border: 1px solid lightgray;
     padding: 10px;
     margin-right: 10px;
+    margin-left: 20px;
+}
+
+.NoteButton-Delete:hover {
+    border: 1px solid red;
+    background-color: red;
+    color: white;
 }
 
 button:hover {

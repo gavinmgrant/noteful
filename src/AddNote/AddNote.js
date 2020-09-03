@@ -150,18 +150,18 @@ class AddNote extends Component {
                     </select>
                 </div>
                 <div>
+                    <button 
+                        type="submit"
+                        disabled={this.validateName() || this.validateContent()}
+                    >
+                        Save
+                    </button>
                     <button
                         tag='button'
                         role='link'
                         onClick={() => this.props.history.push('/')}
                     >
                         Cancel
-                    </button>
-                    <button 
-                        type="submit"
-                        disabled={this.validateName() || this.validateContent()}
-                    >
-                        Save
                     </button>
                 </div>
             </form>
