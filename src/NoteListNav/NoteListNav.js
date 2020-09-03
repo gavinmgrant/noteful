@@ -35,6 +35,8 @@ class NoteListNav extends Component {
         .catch(error => {
             console.error({ error })
         })
+
+        window.location.reload(false);
     }
 
     render() {
@@ -54,17 +56,17 @@ class NoteListNav extends Component {
                                 </h4>        
                             </NavLink>
                             <div className='FolderButton-Area'>
-                            {'('}{countNotesForFolder(notes, folder.id)} notes)&nbsp;&nbsp;&nbsp;
-                            <Link to={`/edit-folder/${folder.id}`}>
-                                Edit
-                            </Link>
-                            <button 
-                                className='FolderButton-Delete'
-                                type='button'
-                                onClick={(e) => this.handleClickDelete(e, folder.id)}
-                            >
-                                Delete
-                            </button>
+                                {'('}{countNotesForFolder(notes, folder.id)} notes)&nbsp;&nbsp;&nbsp;
+                                <Link to={`/edit-folder/${folder.id}`}>
+                                    Edit
+                                </Link>
+                                <button 
+                                    className='FolderButton-Delete'
+                                    type='button'
+                                    onClick={(e) => this.handleClickDelete(e, folder.id)}
+                                >
+                                    Delete
+                                </button>
                             </div>
                         </li>
                     )}
