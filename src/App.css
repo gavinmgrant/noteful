@@ -4,16 +4,21 @@
     box-sizing: border-box;
 }
 
+header {
+    text-align: center;
+}
+
 .App-Nav {
-    width: 30%;
-    margin-left: 20px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .App-Main {
     margin-bottom: 50px;
-    width: 70%;
-    margin-left: 20px;
-    margin-right: 20px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 ul {
@@ -26,19 +31,12 @@ a {
     color: black;
 }
 
+a:hover {
+    text-decoration: underline;
+}
+
 a:visited {
     color: black;
-}
-
-header {
-    text-align: left;
-    margin-left: 30%;
-    padding-left: 20px;
-}
-
-.Contents {
-    display: flex;
-    align-items: flex-start;
 }
 
 button, input, select {
@@ -78,4 +76,31 @@ form {
     margin: 0;
     border: 1px solid lightgray;
     padding: 0 20px 20px 20px;
+}
+
+@media screen and (min-width: 1200px) {
+    header {
+        text-align: left;
+        margin-left: 35%;
+        padding-left: 20px;
+    }
+
+    .App-Nav {
+        width: 35%;
+        margin-left: 20px;
+        text-align: left;
+    }
+    
+    .App-Main {
+        margin-bottom: 50px;
+        width: 65%;
+        margin-left: 20px;
+        margin-right: 20px;
+        text-align: left;
+    }
+    
+    .Contents {
+        display: flex;
+        align-items: flex-start;
+    }
 }

@@ -4,13 +4,9 @@
 
 .NoteListNav-Folder-Link {
     border: 1px solid lightgray;
-    height: 39px;
     width: 95%;
     padding: 10px;
     margin-bottom: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
 }
 
 .NoteListNav-Folder-Link:hover {
@@ -35,4 +31,19 @@ h3 {
     border: 1px solid red;
     background-color: red;
     color: white;
+}
+
+.NoteListNav-Button-Container {
+    margin: 0;
+    width: 50%;
+}
+
+@media screen and (min-width: 1200px) {
+    .NoteListNav-Folder-Link {
+        height: 44px;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
 }

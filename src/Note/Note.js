@@ -41,11 +41,11 @@ class Note extends Component {
         return (
                 <div className='NoteItem'>
                     <div className='NoteDetails'>
-                        <h2 className='NoteName'>   
+                        <h3 className='NoteName'>   
                             <Link to={`/notes/${id}`}>
                                 {note_name}
                             </Link>
-                        </h2>
+                        </h3>
                         <p className='NoteModified'>Modified on: {modified}</p>
                     </div>
                     <div className='NoteButton-Area'>
@@ -57,7 +57,7 @@ class Note extends Component {
                             type='button'
                             onClick={this.handleClickDelete}
                         >
-                            Delete Note
+                            Delete
                         </button>
                     </div>
                 </div> 

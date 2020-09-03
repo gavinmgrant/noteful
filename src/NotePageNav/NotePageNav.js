@@ -23,6 +23,12 @@ class NotePageNav extends Component {
     
         return (
             <div className='NotePageNav'>
+            <h2>Folder:</h2>
+                {folder && (
+                    <h3 className='NotePageNav-Folder-Name'>
+                        {folder.folder_name}
+                    </h3>
+                )}
             <AddButton
                     tag='button'
                     role='link'
@@ -31,12 +37,6 @@ class NotePageNav extends Component {
                 >
                     Go Back
             </AddButton>
-            <p>Folder:</p>
-                {folder && (
-                    <h3 className='NotePageNav-Folder-Name'>
-                        {folder.folder_name}
-                    </h3>
-                )}
             </div>
         )
     }

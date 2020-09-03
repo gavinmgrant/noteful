@@ -23,6 +23,7 @@ class NotePageMain extends Component {
         
         return (
             <section className='NotePageMain'>
+                <h2>Note Details:</h2>
                 <Note
                     id={note.id}
                     note_name={note.note_name}

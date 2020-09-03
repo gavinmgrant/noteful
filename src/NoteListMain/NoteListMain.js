@@ -20,6 +20,8 @@ class NoteListMain extends Component {
         const notesForFolder = getNotesForFolder(notes, folderId)
         return (
             <section className='NoteListMain'>
+                <h2>Notes</h2>
+                <p>Select note name for details.</p>
                 <ul>
                     {notesForFolder.map(note =>
                         <li key={note.id}>

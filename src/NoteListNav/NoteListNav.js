@@ -41,17 +41,20 @@ class NoteListNav extends Component {
         const { folders=[], notes=[] } = this.context
         return (
             <div className='NoteListNav'>
+                <h2>Folders</h2>
+                <p>Select folder name to filter notes by folder.</p>
                 <ul className='NoteListNav-List'>
                     {folders.map(folder =>
                         <li key={folder.id} className='NoteListNav-Folder-Link'>
                             <NavLink
                                 to={`/folders/${folder.id}`}
                             >
-                                <h3>{folder.folder_name}
-                                {' ('}{countNotesForFolder(notes, folder.id)} notes)
-                                </h3>
+                                <h4>
+                                    {folder.folder_name}
+                                </h4>        
                             </NavLink>
                             <div className='FolderButton-Area'>
+                            {'('}{countNotesForFolder(notes, folder.id)} notes)&nbsp;&nbsp;&nbsp;
                             <Link to={`/edit-folder/${folder.id}`}>
                                 Edit
                             </Link>
@@ -66,7 +69,7 @@ class NoteListNav extends Component {
                         </li>
                     )}
                 </ul>
-                <button className='NoteListNav-Button-Wrapper'>
+                <button className='NoteListNav-Button-Container'>
                     <AddButton
                         tag={Link}
                         to='/add-folder'
