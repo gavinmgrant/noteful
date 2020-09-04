@@ -4,7 +4,11 @@ exports[`NotePageMain component renders a .NotePageMain by default 1`] = `
 <section
   className="NotePageMain"
 >
+  <h2>
+    Note Details:
+  </h2>
   <Note
+    content="No content found."
     onDeleteNote={[Function]}
   />
   <div
@@ -12,13 +16,16 @@ exports[`NotePageMain component renders a .NotePageMain by default 1`] = `
   >
     <p
       key="0"
-    />
+    >
+      No content found.
+    </p>
   </div>
 </section>
 `;
 
 exports[`NotePageMain component renders a Note with note prop 1`] = `
 <Note
+  content="No content found."
   onDeleteNote={[Function]}
 />
 `;

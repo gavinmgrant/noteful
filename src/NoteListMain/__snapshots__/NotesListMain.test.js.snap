@@ -1,23 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`NoteListNav component renders a .NoteListNav by default 1`] = `
-<div
-  className="NoteListNav"
+exports[`NoteListMain component renders a .NoteListMain by default 1`] = `
+<section
+  className="NoteListMain"
 >
   <h2>
-    Folders
+    Notes
   </h2>
   <p>
-    Select folder name to filter notes by folder.
+    Select note name for details.
   </p>
-  <ul
-    className="NoteListNav-List"
-  />
+  <ul />
   <button
-    className="NoteListNav-Button-Container"
+    className="NoteListMain-Button-Container"
   >
     <AddButton
-      className="NoteListNav-Add-Folder-Button"
+      className="NoteListMain-Add-Note-Button"
       tag={
         Object {
           "$$typeof": Symbol(react.forward_ref),
@@ -32,17 +30,13 @@ exports[`NoteListNav component renders a .NoteListNav by default 1`] = `
           "render": [Function],
         }
       }
-      to="/add-folder"
+      to="/add-note"
       type="button"
     >
-      Add Folder
+      Add Note
     </AddButton>
   </button>
-</div>
+</section>
 `;
 
-exports[`NoteListNav component renders a link in ul for each folder in array 1`] = `
-<ul
-  className="NoteListNav-List"
-/>
-`;
+exports[`NoteListMain component renders a Note in ul for each notes in array 1`] = `<ul />`;

@@ -7,13 +7,13 @@ exports[`Note component renders a .Note by default 1`] = `
   <div
     className="NoteDetails"
   >
-    <h2
+    <h3
       className="NoteName"
     >
       <Link
-        to="/note/undefined"
+        to="/notes/undefined"
       />
-    </h2>
+    </h3>
     <p
       className="NoteModified"
     >
@@ -23,12 +23,17 @@ exports[`Note component renders a .Note by default 1`] = `
   <div
     className="NoteButton-Area"
   >
+    <Link
+      to="/edit-note/undefined"
+    >
+      Edit
+    </Link>
     <button
       className="NoteButton-Delete"
       onClick={[Function]}
       type="button"
     >
-      Delete Note
+      Delete
     </button>
   </div>
 </div>
@@ -41,15 +46,13 @@ exports[`Note component renders the Note given props 1`] = `
   <div
     className="NoteDetails"
   >
-    <h2
+    <h3
       className="NoteName"
     >
       <Link
-        to="/note/a"
-      >
-        test-class-name
-      </Link>
-    </h2>
+        to="/notes/a"
+      />
+    </h3>
     <p
       className="NoteModified"
     >
@@ -60,12 +63,17 @@ exports[`Note component renders the Note given props 1`] = `
   <div
     className="NoteButton-Area"
   >
+    <Link
+      to="/edit-note/a"
+    >
+      Edit
+    </Link>
     <button
       className="NoteButton-Delete"
       onClick={[Function]}
       type="button"
     >
-      Delete Note
+      Delete
     </button>
   </div>
 </div>

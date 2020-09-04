@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddButton component renders a button.AddButton by default 1`] = `
+<a
+  className="AddButton "
+/>
+`;
+
+exports[`AddButton component renders the add button from props 1`] = `
+<a
+  className="AddButton test-class-name"
+  data-other="test-other-prop"
+>
+  <p>
+    test children
+  </p>
+</a>
+`;

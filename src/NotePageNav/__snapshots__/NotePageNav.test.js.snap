@@ -4,6 +4,9 @@ exports[`NotePageNav component renders a .NotePageNav by default 1`] = `
 <div
   className="NotePageNav"
 >
+  <h2>
+    Folder:
+  </h2>
   <AddButton
     className="NotePageNav-Back-Button"
     onClick={[Function]}
@@ -12,9 +15,6 @@ exports[`NotePageNav component renders a .NotePageNav by default 1`] = `
   >
     Go Back
   </AddButton>
-  <p>
-    Folder:
-  </p>
 </div>
 `;
 
