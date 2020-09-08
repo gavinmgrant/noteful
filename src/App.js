@@ -23,6 +23,7 @@ class App extends Component {
     this.setState({
       folders: this.state.folders.filter(folder => folder.id !== folderId)
     });
+    window.location.reload(false);
   };
 
   handleAddFolder = folder => {

@@ -35,8 +35,6 @@ class NoteListNav extends Component {
         .catch(error => {
             console.error({ error })
         })
-
-        window.location.reload(false);
     }
 
     render() {
